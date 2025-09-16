@@ -107,108 +107,97 @@ border: 1px solid transparent;
 
 
 
+/* ============================================= */
+/* ESTILOS PARA EL CONTENEDOR RESPONSIVO (GRID) */
+/* ============================================= */
 
-/* --- AÑADIR ESTE CÓDIGO A TU ARCHIVO CSS --- */
-
-/* Estilos para el contenedor principal */
-.contenedor-principal {
-    width: 100%;
-    padding: 20px; /* Espacio en los bordes para la vista móvil */
-    box-sizing: border-box;
-    
-    /* Por defecto (VISTA MÓVIL), usamos Flexbox en modo columna */
-    display: flex;
-    flex-direction: column; /* Apila los cuadros uno sobre otro */
-    align-items: center;    /* Centra los cuadros horizontalmente */
-    gap: 30px;              /* Espacio vertical entre los cuadros */
+.ContenedorPrincipal {
+  display: grid; /* Activa el layout de CSS Grid */
+  gap: 1.5rem;   /* Espacio entre los cuadros */
+  padding: 1.5rem; /* Espacio alrededor de todo el grupo de cuadros */
+  
+  /* Esta línea crea las columnas que se ajustan solas al tamaño de la pantalla */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 
-/* --- LA MAGIA PARA EL AUTOAJUSTE EN PC --- */
+/* ============================================= */
+/* ESTILOS ORIGINALES PARA CADA CUADRO       */
+/* ============================================= */
 
-/* Cuando la pantalla tenga un ancho MÍNIMO de 992px (tablets y PC) */
-@media (min-width: 992px) {
-    .contenedor-principal {
-        flex-direction: row;        /* Cambia la dirección a una fila */
-        justify-content: center;    /* Centra el grupo de cuadros en la página */
-        flex-wrap: wrap;            /* Permite que los cuadros bajen de línea si no caben */
-        gap: 20px;                  /* Espacio horizontal y vertical entre cuadros */
-    }
-}
+.Cuadro { 
+  overflow: hidden; 
+  border-radius: 0.5rem; 
+  background-color: #fff; 
+  color: #212121; 
+  display: flex; /* Añadido para mejor alineación interna */
+  flex-direction: column; /* Añadido para mejor alineación interna */
+} 
 
+.ImagenCu { 
+  height: 8rem; 
+  width: 100%; 
+  object-fit: cover; 
+  background-color: rgb(204, 0, 255); 
+  background-image: linear-gradient(to right, rgb(255, 174, 0), rgb(204, 0, 255)); 
+} 
 
-/* --- TU CÓDIGO CSS ORIGINAL (SIN CAMBIOS) --- */
+.ContenidoCu { 
+  padding: 1rem; 
+  text-align: center;
+  display: flex; /* Añadido para mejor alineación interna */
+  flex-direction: column; /* Añadido para mejor alineación interna */
+  flex-grow: 1; /* Permite que este contenedor crezca para ocupar el espacio */
+} 
 
-.Cuadro {
-    overflow: hidden;
-    border-radius: 0.5rem;
-    max-width: 300px;
-    background-color: #fff;
-    color: #212121;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Sombra suave para mejor apariencia */
-}
+.TextBig { 
+  font-size: 0.875rem; 
+  line-height: 1.25rem; 
+  font-weight: 600; 
+  letter-spacing: 0.1em; 
+  text-transform: uppercase; 
+  margin-top: 1rem;
+  flex-grow: 1; /* Empuja el botón y el texto "Vanglare" hacia abajo */
+} 
 
-.ImagenCu {
-    height: 8rem;
-    width: 100%;
-    object-fit: cover;
-    background-color: rgb(204, 0, 255);
-    background-image: linear-gradient(to right, rgb(255, 174, 0), rgb(204, 0, 255));
-}
+.TextBig span:first-child { 
+  font-size: 2.25rem; 
+  line-height: 2.5rem; 
+  font-weight: 900; 
+  display: block; /* Asegura que ocupe su propia línea */
+} 
 
-.ContenidoCu {
-    padding: 1rem;
-    text-align: center;
-}
+.TextBig span:last-child { 
+  margin-top: 0.5rem; 
+  display: block; 
+  font-size: 0.875rem; 
+  line-height: 1.25rem; 
+} 
 
-/* Uní tus dos reglas .TextBig en una para mayor claridad */
-.TextBig {
-    margin-top: 1rem;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-weight: 600;
-}
+.MasInf { 
+  margin-top: 1rem; 
+  display: inline-block; 
+  width: 100%; 
+  background-color: rgb(0, 0, 0); 
+  padding-top: 1rem; 
+  padding-bottom: 1rem; 
+  border-radius: 4px; 
+  font-size: 0.875rem; 
+  line-height: 1.25rem; 
+  font-weight: 700; 
+  letter-spacing: 0.1em; 
+  text-transform: uppercase; 
+  color: rgba(255, 255, 255, 1); 
+  text-decoration: none; 
+} 
 
-.TextBig span:first-child {
-    font-size: 1.75rem; /* Ajustado para el texto en dos líneas */
-    line-height: 2rem;
-    font-weight: 900;
-    display: block;
-}
-
-.TextBig span:last-child {
-    margin-top: 0.5rem;
-    display: block;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-}
-
-.MasInf {
-    margin-top: 1.5rem;
-    display: inline-block;
-    width: 100%;
-    background-color: rgb(0, 0, 0);
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    border-radius: 4px;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 1);
-    text-decoration: none;
-}
-
-.TextVan {
-    margin-top: 1rem;
-    font-size: 0.75rem;
-    line-height: 1rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    color: rgba(156, 163, 175, 1);
+.TextVan { 
+  margin-top: 1rem; 
+  font-size: 0.75rem; 
+  line-height: 1rem; 
+  font-weight: 500; 
+  text-transform: uppercase; 
+  color: rgba(156, 163, 175, 1); 
 }
 
   </style>
@@ -318,57 +307,85 @@ border: 1px solid transparent;
 <br>
 
  
-<div class="contenedor-principal">
+<div class="ContenedorPrincipal">
 
-        <div class="Cuadro">
-            <div class="ImagenCu"></div>
-            <div class="ContenidoCu">
-                <div class="TextBig">
-                    <span>Tramites<br>Certificados</span>
-                    <span>Tramites .....</span>
-                </div>
-                <a class="MasInf" href="#">Mas informacion</a>
-                <p class="TextVan">Vanglare</p>
-            </div>
-        </div>
-
-        <div class="Cuadro">
-            <div class="ImagenCu"></div>
-            <div class="ContenidoCu">
-                <div class="TextBig">
-                    <span>Tramites<br>Certificados</span>
-                    <span>Tramites .....</span>
-                </div>
-                <a class="MasInf" href="#">Mas informacion</a>
-                <p class="TextVan">Vanglare</p>
-            </div>
-        </div>
-
-        <div class="Cuadro">
-            <div class="ImagenCu"></div>
-            <div class="ContenidoCu">
-                <div class="TextBig">
-                    <span>Tramites<br>Certificados</span>
-                    <span>Tramites .....</span>
-                </div>
-                <a class="MasInf" href="#">Mas informacion</a>
-                <p class="TextVan">Vanglare</p>
-            </div>
-        </div>
-
-        <div class="Cuadro">
-            <div class="ImagenCu"></div>
-            <div class="ContenidoCu">
-                <div class="TextBig">
-                    <span>Tramites<br>Certificados</span>
-                    <span>Tramites .....</span>
-                </div>
-                <a class="MasInf" href="#">Mas informacion</a>
-                <p class="TextVan">Vanglare</p>
-            </div>
-        </div>
-
+  <div class="Cuadro">
+    <div class="ImagenCu"></div>
+    <div class="ContenidoCu">
+      <div class="TextBig">
+        <span>
+          Tramites
+          Certificados
+        </span>
+        <span>Tramites .....</span>
+      </div>
+      <a class="MasInf" href="">
+        Mas informacion
+      </a>
+      <p class="TextVan">
+        Vanglare
+      </p>
     </div>
+  </div>
+
+  <div class="Cuadro">
+    <div class="ImagenCu"></div>
+    <div class="ContenidoCu">
+      <div class="TextBig">
+        <span>
+          Tramites
+          Certificados
+        </span>
+        <span>Tramites .....</span>
+      </div>
+      <a class="MasInf" href="">
+        Mas informacion
+      </a>
+      <p class="TextVan">
+        Vanglare
+      </p>
+    </div>
+  </div>
+
+  <div class="Cuadro">
+    <div class="ImagenCu"></div>
+    <div class="ContenidoCu">
+      <div class="TextBig">
+        <span>
+          Tramites
+          Certificados
+        </span>
+        <span>Tramites .....</span>
+      </div>
+      <a class="MasInf" href="">
+        Mas informacion
+      </a>
+      <p class="TextVan">
+        Vanglare
+      </p>
+    </div>
+  </div>
+
+  <div class="Cuadro">
+    <div class="ImagenCu"></div>
+    <div class="ContenidoCu">
+      <div class="TextBig">
+        <span>
+          Tramites
+          Certificados
+        </span>
+        <span>Tramites .....</span>
+      </div>
+      <a class="MasInf" href="">
+        Mas informacion
+      </a>
+      <p class="TextVan">
+        Vanglare
+      </p>
+    </div>
+  </div>
+
+</div>
 
 
 
